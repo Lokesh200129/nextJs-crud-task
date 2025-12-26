@@ -1,6 +1,6 @@
 
 "use client";
-export default function DeleteButton({ id }) {
+export default function DeleteButton({ id }: { id: number }) {
     const handleDelete = async () => {
         const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
             method: 'DELETE',
