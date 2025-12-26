@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useUserContext } from "../../../context/UserContext";
 import { useParams, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 
 export default function DetailedView() {
     const { id } = useParams();
@@ -27,13 +27,13 @@ export default function DetailedView() {
         router.push("/users");
     };
 
-    const handleUpdate = (e) => {
+    const handleUpdate = (e: FormEvent) => {
         e.preventDefault();
         updateUser(formData);
         setIsEditing(false);
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
